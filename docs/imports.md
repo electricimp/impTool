@@ -5,7 +5,7 @@
 - [Imports](#imports)
   - [Import From URL](#import-from-url)
   - [Import From GitHub](#import-from-github)
-- [Import From Local File](#import-from-local-file)
+  - [Import From Local File](#import-from-local-file)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -27,7 +27,7 @@
 #include "github:electricimp/APDS9007/APDS9007.class.nut@develop"
 ```
 
-## Import From Local File
+### Import From Local File
 
 ```
 #include "file-path.nut"
