@@ -23,8 +23,8 @@ Variables can come from different sources:
 
 ### Predefined Variables
  
-- __FILE__
-- __LINE__
+- \_\_FILE\_\_
+- \_\_LINE\_\_
 
 ### User Variables
 
