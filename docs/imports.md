@@ -3,20 +3,22 @@
 
 
 - [Imports](#imports)
+  - [Import From URL](#import-from-url)
+  - [Import From GitHub](#import-from-github)
+- [Import From Local File](#import-from-local-file)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-
 ## Imports
 
-__Import from URL__
+### Import From URL
 
 ```
 #include "http://example.com/file.nut"
 #include "https://example.com/file.nut"
 ```
 
-__Import from GitHub__
+### Import From GitHub
 
 ```
 #include "github:<account>/<repository>/<file>@<ref-name>"
@@ -25,7 +27,7 @@ __Import from GitHub__
 #include "github:electricimp/APDS9007/APDS9007.class.nut@develop"
 ```
 
-__Import from local file__
+## Import From Local File
 
 ```
 #include "file-path.nut"
