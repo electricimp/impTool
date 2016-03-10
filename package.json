@@ -1,0 +1,43 @@
+{
+  "name": "imptool",
+  "version": "0.0.1-dev",
+  "description": "Tooling for the Electric Imp Platform",
+  "main": "src/cli/imptool.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "node ./node_modules/bin/jasmine.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/electricimp/impTool.git"
+  },
+  "keywords": [
+    "electric",
+    "imp",
+    "imptool",
+    "package",
+    "manager",
+    "preprocessor",
+    "bundle",
+    "watch",
+    "buildapi"
+  ],
+  "author": "Mikhail Yurasov <mikhail@electricimp.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/electricimp/impTool/issues"
+  },
+  "homepage": "https://github.com/electricimp/impTool",
+  "dependencies": {
+    "colors": "^1.1.2",
+    "commander": "^2.9.0",
+    "imp-build-api-v4": "^1.0.1",
+    "strip-json-comments": "^2.0.0"
+  },
+  "devDependencies": {
+    "jasmine": "^2.4.1",
+    "jasmine-expect": "^2.0.2"
+  }
+}
