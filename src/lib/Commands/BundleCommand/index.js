@@ -14,7 +14,7 @@ class BundleCommand extends AbstractCommand {
     return super._run();
   }
 
-// <editor-fold desc="Accessors" defaultstate="collapsed">
+  // <editor-fold desc="Accessors" defaultstate="collapsed">
 
   get inputFile() {
     return this._inputFile;
