@@ -27,6 +27,7 @@ The following directives are supported:
 - #elif
 - #else
 - #endif
+- #error (tdb)
 
 ## Variables
 
@@ -38,6 +39,8 @@ Variables can come from different sources:
  
 - \_\_FILE\_\_
 - \_\_LINE\_\_
+- \_\_DATE\_\_ (tbd)
+- \_\_TIME\_\_ (tbd)
 
 ### User Variables
 
