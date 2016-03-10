@@ -28,11 +28,14 @@
 
 ```squirrel
 @include "hostname.com/repository.git/<path>/<to>/<file>@<ref>"
+```
 
-// for example, from GitHub:
+For example, from GitHub:
+
+```squirrel
 @include "github.com/<user>/<repository>.git/<file>@<ref>"
 
-// head from the default branch
+// head of the default branch
 @include "github.com/electricimp/APDS90007.git/APDS9007.class.nut"
 
 // head of the "master" branch
