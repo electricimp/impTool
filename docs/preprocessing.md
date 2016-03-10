@@ -36,8 +36,9 @@ Variables can come from different sources:
  
 - \_\_FILE\_\_
 - \_\_LINE\_\_
-- \_\_DATE\_\_ (tbd)
-- \_\_TIME\_\_ (tbd)
+- \_\_BUILD\_\_
+- \_\_DATE\_\_ _(tbd)_
+- \_\_TIME\_\_ _(tbd)_
 
 ### User Variables
 
