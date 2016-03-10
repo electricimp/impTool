@@ -3,32 +3,44 @@
 
 
 - [Imports](#imports)
-  - [Import From URL](#import-from-url)
-  - [Import From GitHub](#import-from-github)
-  - [Import From Local File](#import-from-local-file)
+  - [Import from Local File](#import-from-local-file)
+  - [Import from URL](#import-from-url)
+  - [Import from Git Repository](#import-from-git-repository)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Imports
 
-### Import From URL
+### Import from Local File
 
 ```
-#include "http://example.com/file.nut"
-#include "https://example.com/file.nut"
+@include "file-path.nut"
 ```
 
-### Import From GitHub
+### Import from URL
 
 ```
-#include "github:<account>/<repository>/<file>@<ref-name>"
-#include "github:electricimp/APDS9007/APDS9007.class.nut@v1.0"
-#include "github:electricimp/APDS9007/APDS9007.class.nut@master"
-#include "github:electricimp/APDS9007/APDS9007.class.nut@develop"
+@include "http://example.com/file.nut"
+@include "https://example.com/file.nut"
 ```
 
-### Import From Local File
+### Import from Git Repository
 
-```
-#include "file-path.nut"
+```squirrel
+@include "hostname.com/repository.git/<path>/<to>/<file>@<ref>"
+
+// for example, from GitHub:
+@include "github.com/<user>/<repository>.git/<file>@<ref>"
+
+// head from the default branch
+@include "github.com/electricimp/APDS90007.git/APDS9007.class.nut"
+
+// head of the "master" branch
+@include "github.com/electricimp/APDS90007.git/APDS9007.class.nut@master"
+
+// latest tag
+@include "github.com/electricimp/APDS90007.git/APDS9007.class.nut@latest"
+
+// existing tag "v1.0.1"
+@include "github.com/electricimp/APDS90007.git/APDS9007.class.nut@v1.0.1"
 ```

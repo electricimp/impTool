@@ -17,21 +17,18 @@
 
 The following directives are supported: 
 
-- #include
-- #define
-- #undef
-- #if
-- #ifdef
-- #ifndef
-- #error
-- #elif
-- #else
-- #endif
-- #error (tdb)
+- @include
+- @define
+- @undefine
+- @if
+- @error _(tbd)_
+- @elseif
+- @else
+- @endif
 
 ## Variables
 
-Variables can be inserted in the code by using `#{VARNAME}` syntax. \
+Variables can be inserted in the code by using `@{VARNAME}` syntax. \
 
 Variables can come from different sources:
 
@@ -44,8 +41,8 @@ Variables can come from different sources:
 
 ### User Variables
 
-Variables defined with `#define` statement.
+Variables defined with `@define` statement.
 
 ### Environment Variables
 
-With the `#{env:VARNAME}` syntax environment variables can be inserted in the code. Access to the IMP_BUILD_API_KEY is not allowed.
+With the `@{env:VARNAME}` syntax environment variables can be inserted in the code. Access to the IMP_BUILD_API_KEY is not allowed.
