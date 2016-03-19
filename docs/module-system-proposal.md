@@ -5,15 +5,15 @@
 - [Module System – Proposal](#module-system-%E2%80%93-proposal)
   - [Rationale](#rationale)
   - [Compatibility](#compatibility)
-  - [Exporting](#exporting)
-  - [Importing](#importing)
+  - [Exporting](@exporting)
+  - [Importing](@importing)
   - [Bootstrapping](#bootstrapping)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 # Module System – Proposal
 
-*v.0.0.1*
+*v.0.0.2*
 
 ## Rationale
 
@@ -23,42 +23,42 @@ Module system enables flexible dependency management and allows for dependency r
 
 In a *bundling* process code compatible with the current Squirrel compilers is generated.
 
-Modules that support `#import` and `#export` instructions should be compatible with traditional inclusion into the global context.
+Modules that support `@import` and `@export` instructions should be compatible with traditional inclusion into the global context.
 
-Vise-versa, modules that do not use module system should be parsed and `#export` statements should be generated automatically.
+Vise-versa, modules that do not use module system should be parsed and `@export` statements should be generated automatically.
 
 ## Exporting
 
-Modules can export symbols via `#export` statement:
+Modules can export symbols via `@export` statement:
 
 ```squirrel
 // exporting a symbol
-#export Symbol
+@export Symbol
 
 // aliasing
-#export Symbol as Alias
+@export Symbol as Alias
 
 // exporting default symbol
-#export default Symbol
+@export default Symbol
 ```
 
 ## Importing
 
-Modules can import dependencies via `#import` statement.
+Modules can import dependencies via `@import` statement.
 
 ```squirrel
 // importing default exports (following two statements are equal)
-#import Anything from Module
-#import {default as Anything} from Module
+@import Anything from Module
+@import {default as Anything} from Module
 
 // importing a symbol
-#import {Symbol} from Module
+@import {Symbol} from Module
 
 // aliasing
-#import {Symbol as Alias} from Module
+@import {Symbol as Alias} from Module
 
 // importing all exports
-#import {*} from Module
+@import {*} from Module
 ```
 
 ## Bootstrapping
@@ -68,45 +68,43 @@ In a *bundling* process dependencies are resolved, modules are fetched from repo
 The resulting Squirrel code may look like:
 
 ```squirrel
-function moduleA_closure() {
-  // #export A
+function __module__A() {
+  // @export MyClass as HiThereClass
 
-  class A {
+  local MyClass = class {
     function hello() {
-      server.log("hello from a");
+      server.log("hi there!");
     }
   }
 
-  // export table
   return {
-    A = A
-  }
+      "MyClass": HiThereClass
+  };
 }
 
-function moduleB_closure(A) {
-
-  // #import {A} from moduleA;
-  // #export default doSmth
+function __module__B(HiThereClass) {
+  // @import {HiThereClass} from A;
+  // @export default doSmth
 
   function doSmth() {
-    A().hello();
+    HiThereClass().hello();
   }
 
-  // module.exports = doSmth;
-
-  return {
-    _default = doSmth
-  }
+  return doSmth;
 }
 
-function __main() {
-  // correct order is determined via dependency resolution
-  local moduleA_exports = moduleA_closure();
-  local moduleB_exports = moduleB_closure(moduleA_exports.A);
+// bootstrap
+function __main__() {
+  // correct order and used modules are
+  // determined via dependency resolution
+  // with topo-sort of the dependency graph
+  local __module__A_exports = __module__A();
+  local __module__B_exports = __module__A(__module__A_exports.HiThereClass);
 
-  abc <- moduleB_exports._default;
+  //
+  local abc <- __module__B_exports._default;
   abc();
 }
 
-__main();
+__main__();
 ```
