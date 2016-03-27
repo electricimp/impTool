@@ -15,16 +15,15 @@
 
 ## Directives
 
-The following directives are supported: 
+The following directives are supported:
 
-- @include
-- @define
-- @undefine
-- @if
-- @error _(tbd)_
-- @elseif
-- @else
-- @endif
+- @include: `@include <source:expression>`
+- @set: `@set <variable:varname> <value:expression>`
+- @if: `@if <condition:expression>`
+- @else: `@else`
+- @elseif: `@elseif <condition:expression>`
+- @endif: `@endif`
+- @error: `@error <expression>` _(tbd)_
 
 ## Variables
 
@@ -33,7 +32,7 @@ Variables can be inserted in the code by using `@{VARNAME}` syntax. \
 Variables can come from different sources:
 
 ### Predefined Variables
- 
+
 - \_\_FILE\_\_
 - \_\_LINE\_\_
 - \_\_BUILD\_\_
