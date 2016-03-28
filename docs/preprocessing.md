@@ -17,7 +17,7 @@
 
 The following directives are supported:
 
-- @include: `@include <source:expression>`
+- @include: `@include <path:expression>`
 - @set: `@set <variable:varname> <value:expression>`
 - @if: `@if <condition:expression>`
 - @else: `@else`
